@@ -1,0 +1,85 @@
+#top1{
+	background-color: gray;	
+	border:1px solid red;
+	height: 25px;
+	width: 1900px;
+	position:relative;
+}
+#top1>img{
+	position: absolute;
+	left: 180px;
+	top:4px;
+}
+#top2{
+	position: absolute;
+	width: 1500px;
+	height: 25px;
+	left: 230px;
+	top:1px;
+	overflow: hidden;
+}
+#zi{
+	color: red;
+	position: absolute;
+	left: 1200px;
+	top:-14px;
+}
+.box{
+	width: 1600px;
+	height:382px;
+	border:1px solid red;
+	position: absolute;
+	left: 200px;
+	top:70px;
+	overflow: hidden;
+}
+.zero{
+	width:11200px;
+	position: absolute;
+	left:-1600px;
+}
+.one{
+	width: 1600px;
+	margin:0 0px;
+	overflow: hidden;
+	float: left;
+}
+.box>span{
+	display: block;
+	width: 37px;
+	height: 60px;
+	text-align: center;
+	cursor: pointer;
+	color: white;
+	top:175px;
+	line-height: 60px;
+	background: red;
+	font-size: 30px;
+	position: absolute;
+	opacity: 0;
+}
+#left{
+	left: 30px;
+}
+#right{
+	right:30px;
+}
+.nav{
+	position: absolute;
+	left:500px;
+	bottom: 20px;
+}
+.nav>li{
+	float:left;
+	width:20px;
+	height:20px;
+	background: gray;
+	cursor:pointer;
+	margin: 0 17px;
+	border-radius: 50%;
+	list-style: none;
+	text-align: center;
+}
+.nav .mo{
+	background-color: red;
+}

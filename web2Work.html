@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>轮播</title>
+	<link rel="stylesheet" type="text/css" href="web2.css">
+	<script src="animate.js"></script>
+</head>
+<body>
+	<div id="top1">
+		<img src="image/a15.png">
+		<div id="top2">
+		<p id="zi">[温馨提示]最近有不少不法分子在网上骗人，请大家注意！！！</p>
+	</div>
+	</div>
+	<div class="box" id="box">
+		<div class="zero" id="zero">
+			<div class="one"><img src="image/b5.png"></div>
+		    <div class="one"><img src="image/b1.png"></div>
+		    <div class="one"><img src="image/b2.png"></div>
+		    <div class="one"><img src="image/b3.png"></div>
+		    <div class="one"><img src="image/b4.png"></div>
+		    <div class="one"><img src="image/b5.png"></div>
+		    <div class="one"><img src="image/b1.png"></div>	
+		</div>
+		<span id="left"><</span>
+		<span id="right">></span>
+		<ul class="nav" id="nav">
+			<li class="mo">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var box=document.getElementById('box');
+		var zi=document.getElementById('zi');
+		var left=document.getElementById('left');
+		var right=document.getElementById('right');
+		var olist=document.getElementById('nav').children;
+		var timer=setInterval(function(){
+			var now=parseInt(getStyle(zi,"left"));
+			if(now===-470){
+				now=1500;
+			}
+			zi.style.left=now-1+"px";
+		},10);
+		function getStyle(obj, attr){
+	    if(obj.currentStyle){
+		    return obj.currentStyle[attr];
+	        } else {
+		    return getComputedStyle(obj, null)[attr];
+		}
+	}
+	var index=1;
+	function next(){
+		index++;
+		lat();
+		animate(zero,{left:-1600*index},function(){
+			if(index===6){
+			    zero.style.left="-1600px";
+			    index=1;
+			}
+		});
+	}
+	function qian(){
+		index--;
+		lat();
+		animate(zero,{left:-1600*index},function(){
+			if(index===0){
+			    zero.style.left="-8000px";
+			    index=5;
+			}
+		});
+	}
+	var timer1=setInterval(next
+	,3000);
+	box.onmouseover=function(){
+		animate(left,{opacity:10});
+		animate(right,{opacity:10});
+		clearInterval(timer1)
+	}
+	box.onmouseout=function(){
+		animate(left,{opacity:0});
+		animate(right,{opacity:0});
+		timer1=setInterval(next,3000)
+	}
+	right.onclick=next;
+	left.onclick=qian;
+	for(i=0;i<olist.length;++i){
+		olist[i].idd=i;
+		olist[i].onclick=function(){
+			index=this.idd+1;
+			lat();
+			animate(zero,{left:-1600*index});
+		}
+	}
+	function lat(){
+		for(var i=0;i<olist.length;i++){
+				olist[i].className='';
+			}
+		if(index===6){
+			olist[0].className='mo';
+		}
+		else if(index===0){
+			olist[4].className='mo';
+		}
+		else{
+			olist[index-1].className='mo';
+		}
+
+		
+	}
+	</script>
+</body>
+</html>
